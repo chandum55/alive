@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Examination-Test </title>
+  <link rel="stylesheet" href= "style.css"/>
+  <style>
+    /* Result Table */
+#result {
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f8f8f8;
+}
+
+/* Correct / Wrong Styling */
+.correct {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.wrong {
+    color: #e74c3c;
+    font-weight: bold;
+}
+  </style>
+</head>
+<body>
+    <div class="test-background">
+    <div class="test">
+    <form id="examForm">
+      <h2 ><ur>Candidate & Course Details</ur></h2>
+        <div class="corse">
+          <label class="label">Course Code</label>
+          <input type="text" id="courseCode" placeholder="e.g. CS201" required />
+
+          <label class="label">Course Name</label>
+          <input type="text" id="courseName" placeholder="e.g. Data Structures" required />
+
+          <label class="label">Roll No.</label>
+          <input type="text" id="roll" placeholder="Enter roll number" required />
+
+          <label class="label">Year</label>
+          <select id="year" name="year" required>
+            <option value="">Select year</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+
+          <label class="label">Semester</label>
+          <select id="sem" name="sem" required>
+            <option value="">Select semester</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+          </select>
+      </div>
+
+      <div class="instructions">
+        <strong>Instructions:</strong>
+        <ol>
+          <li> Read each question carefully and choose the best answer.</li>
+          <li> Each question carries 1 mark. No negative marking.</li>
+          <li> Once you click Submit, answers will be evaluated and the score shown.</li>
+          <li> Use the Restart button to clear all responses and retake the test.</li>
+        </ol>
+      </div>
+      
+      <h2>Multiple Choice Questions (Data Structures)</h2>
+
+      <!-- MCQ list -->
+      <div id="questions">
+        <div class="mcq" data-qid="1">
+          <h3>1. Which data structure uses FIFO order?</h3>
+          <label><input type="radio" name="q1" value="a"> Stack</label><br>
+          <label><input type="radio" name="q1" value="b"> Queue</label><br>
+          <label><input type="radio" name="q1" value="c"> Tree</label><br>
+          <label><input type="radio" name="q1" value="d"> Graph</label>
+        </div>
+
+        <div class="mcq" data-qid="2">
+          <h3>2. Which traversal visits left subtree, then root, then right subtree?</h3>
+          <label><input type="radio" name="q2" value="a"> Preorder</label><br>
+          <label><input type="radio" name="q2" value="b"> Inorder</label><br>
+          <label><input type="radio" name="q2" value="c"> Postorder</label><br>
+          <label><input type="radio" name="q2" value="d"> Level order</label>
+        </div>
+
+        <div class="mcq" data-qid="3">
+          <h3>3. Average-case time complexity of binary search on a sorted array is:</h3>
+          <label><input type="radio" name="q3" value="a"> O(n)</label><br>
+          <label><input type="radio" name="q3" value="b"> O(log n)</label><br>
+          <label><input type="radio" name="q3" value="c"> O(1)</label><br>
+          <label><input type="radio" name="q3" value="d"> O(n log n)</label>
+        </div>
+
+        <div class="mcq" data-qid="4">
+          <h3>4. Which data structure is best suited to implement recursion?</h3>
+          <label><input type="radio" name="q4" value="a"> Queue</label><br>
+          <label><input type="radio" name="q4" value="b"> Stack</label><br>
+          <label><input type="radio" name="q4" value="c"> Hash table</label><br>
+          <label><input type="radio" name="q4" value="d"> Heap</label>
+        </div>
+
+        <div class="mcq" data-qid="5">
+          <h3>5. Which of the following is a self-balancing binary search tree?</h3>
+          <label><input type="radio" name="q5" value="a"> Binary Heap</label><br>
+          <label><input type="radio" name="q5" value="b"> AVL Tree</label><br>
+          <label><input type="radio" name="q5" value="c"> Binary Search Tree (unspecified)</label><br>
+          <label><input type="radio" name="q5" value="d"> Graph</label>
+        </div>
+
+        <div class="mcq" data-qid="6">
+          <h3>6. Which data structure provides average O(1) time for insert and lookup (assuming good hashing)?</h3>
+          <label><input type="radio" name="q6" value="a"> Array</label><br>
+          <label><input type="radio" name="q6" value="b"> Linked List</label><br>
+          <label><input type="radio" name="q6" value="c"> Hash Table</label><br>
+          <label><input type="radio" name="q6" value="d"> Binary Tree</label>
+        </div>
+      </div>
+
+      <div id="message" style="color:red; font-weight:bold; margin-top:10px;"></div>
+      <div id="result"></div>
+
+      <div class="submit-button">
+        <button type="button" id="submitBtn">Submit</button>
+        <button type="button" id="restartBtn" class="secondary">Restart</button>
+      </div>
+
+    <footer style="margin-top:20px;">Good luck! Make sure your details are correct before submitting.</footer>
+  </form>
+  </div>
+</div>
+
+<script>
+const answers = { q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'b', q6: 'c' };
+
+function getSelected(name){
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : null;
+}
+
+function evaluate(){
+  const requiredFields = ['courseCode','courseName','roll','year','sem'];
+  for(const id of requiredFields){
+    const v = document.getElementById(id).value.trim();
+    if(!v){
+      document.getElementById('message').textContent = 'Please fill all candidate and course details.';
+      return;
+    }
+  }
+  document.getElementById('message').textContent = '';
+  let score = 0;
+  const rows = [];
+  for(let i=1;i<=6;i++){
+    const key = 'q'+i;
+    const sel = getSelected(key);
+    const correct = answers[key];
+    const isCorrect = sel && sel === correct;
+    if(isCorrect) score += 1;
+    rows.push({q:i, selected: sel || '—', correct, isCorrect});
+  }
+
+  // build result table
+  let html = `<h3>Result — Score: ${score} / 6</h3>`;
+  html += `<table><thead><tr><th>Q no.</th><th>Your answer</th><th>Correct answer</th><th>Result</th></tr></thead><tbody>`;
+  for(const r of rows){
+    html += `<tr><td>${r.q}</td><td>${r.selected}</td><td>${r.correct}</td><td class="${r.isCorrect? 'correct':'wrong'}">${r.isCorrect? 'Correct':'Wrong'}</td></tr>`;
+  }
+  html += `</tbody></table>`;
+  document.getElementById('result').innerHTML = html;
+
+  // scroll to result
+  document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+
+function restart(){
+  document.getElementById('examForm').reset();
+  document.getElementById('result').innerHTML = '';
+  document.getElementById('message').textContent = '';
+}
+
+document.getElementById('submitBtn').addEventListener('click', evaluate);
+document.getElementById('restartBtn').addEventListener('click', restart);
+</script>
+
+</body>
+</html>

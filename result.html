@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Examination-Student Results</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="result-background">
+  <div class="result-container">
+    <h2 class="h2">Student Results</h2>
+    <label class="labels" for="rollno">Enter Roll No:</label>
+    <input type="text" id="rollno" placeholder="enter rollno" required>
+    <div class="submit-btn">
+    <button class="btn" onclick="showResults()">Submit</button>
+    <button class="btn" onclick="restartPage()">Restart</button>
+    </div>
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Subject Code</th>
+                <th>Subject Name</th>
+                <th>Grade</th>
+                <th>Credits</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+
+    <div class="result-footer" id="footer">
+        SGPA: <span id="sgpa"></span> | CGPA: <span id="cgpa"></span>
+    </div>
+</div>
+</div>
+<script>
+    function showResults() {
+        const rollno = document.getElementById("rollno").value;
+        if (rollno.trim() === "") {
+            alert("Please enter a Roll Number!");
+            return;
+        }
+
+        // Example data 
+        const results = [
+            { sno: 1, code: "CS101", name: "WT", grade: "A", credits: 4 },
+            { sno: 2, code: "MA102", name: "DAA", grade: "B+", credits: 3 },
+            { sno: 3, code: "PH103", name: "SE", grade: "A+", credits: 4 },
+            { sno: 4, code: "CH104", name: "SR", grade: "B", credits: 3 },
+            { sno: 5, code: "EN105", name: "NOSQl", grade: "A", credits: 2 }
+        ];
+
+        const tbody = document.getElementById("tableBody");
+        tbody.innerHTML = ""; // Clear previous rows
+
+        results.forEach(row => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${row.sno}</td>
+                <td>${row.code}</td>
+                <td>${row.name}</td>
+                <td>${row.grade}</td>
+                <td>${row.credits}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // Example SGPA & CGPA
+        document.getElementById("sgpa").textContent = "8.5";
+        document.getElementById("cgpa").textContent = "8.2";
+
+        // Show table and footer
+        document.getElementById("resultsTable").style.display = "table";
+        document.getElementById("footer").style.display = "block";
+    }
+     // resetart the page
+    function restartPage() {
+        document.getElementById("rollno").value = "";
+        document.getElementById("resultsTable").style.display = "none";
+        document.getElementById("footer").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
+

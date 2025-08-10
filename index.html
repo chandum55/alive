@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ONLINE EXAMINATION</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!--nav bar section-->
+  <div class="navbar">
+    <div class="container">
+      <h1 class="logo">EXAMINEER</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        
+  <div class="dropdown">
+    <button onclick="toggleDropdown()" class="dropdown-btn">Login</button>
+    <div id="loginDropdown" class="dropdown-content">
+      <a href="studentlogin.html">Student</a>
+      <a href="admin.html"> / Admin</a>
+    </div>
+  </div>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="test.html">Tests</a></li>
+        <li><a href="result.html">Results Page</a></li>
+
+      </ul>
+    </div>
+</div>
+
+<!--hero section-->
+<div class="hero">
+
+    <h1 >Register for Your Exams with Ease</h1>
+    <p >Simple, secure, and stress-free exam registration for students and professionals.</p>
+    <a class="content" href="registration.html">Register Now</a>
+  
+  </div>
+
+  
+  <!-- Vision & Mission Section -->
+  <section class="vision-mission" id="vision-mission">
+    <div class="vision">
+      <h2>Our Vision</h2>
+      <p>
+        To emerge as one of the most preferred departments in the Southern region to produce professionally competent ML & DS engineers.
+      </p>
+    </div>
+    <div class="mission">
+      <h2>Our Mission</h2>
+      <ul>
+        <li>Provide students with a set of necessary knowledge, skills, and attitude.</li>
+        <li>Develop the professional potential of students through comprehensive teaching and learning processes.</li>
+        <li>Inculcate life-long learning among the students to serve the profession and meet intellectual, ethical, and career challenges.</li>
+        <li>Establish vital, state-of-the-art research facilities to provide opportunities for creating, interpreting, applying, and disseminating knowledge.</li>
+      </ul>
+    </div>
+  </section>
+
+<script>
+  function toggleDropdown() {
+    document.getElementById("loginDropdown").classList.toggle("show");
+  }
+
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropdown-btn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (let i = 0; i < dropdowns.length; i++) {
+        let openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+  </body>
+  </html>
