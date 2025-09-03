@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extract Two Digit Numbers</title>
+</head>
+<body>
+  <script>
+    let text = "123 22 33 7 456 99";
+    
+    // Match only two-digit numbers
+    let twoDigitNumbers = text.match(/\b\d{2}\b/g);
+
+    console.log(twoDigitNumbers); // Output: ["22", "33", "99"]
+
+    // Show result on page
+    document.write("Two digit numbers: " + twoDigitNumbers.join(", "));
+  </script>
+</body>
+</html>
